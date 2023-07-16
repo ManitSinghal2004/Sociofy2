@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const RightBar = ()=>{
     const navigate = useNavigate();
     const { isLoading, error, data } = useQuery(["recommendation"],() =>
-        makeRequest.get("/api/recommendations").then(res=>{
+        makeRequest.get("recommendations").then(res=>{
             return res.data;
         })
   );
@@ -17,10 +17,10 @@ const RightBar = ()=>{
             <div className="container">
                 <div className="item">
                     <span>Suggestions For You</span>
-                    {data.map(user => 
-                        <div className="user" key={user.id} onClick={() => navigate(`/profile/${user.id}`)}>
+                    {data?.map(user => 
+                        <div className="user" key={user.id} style={{cursor:"pointer"}} onClick={() => navigate(`/profile/${user.id}`)}>
                             <div className="userinfo"> 
-                                <img src={user.profilePic} alt="error" />
+                                <img src={`/upload/${user.profilePic}`} alt="error" />
                                 <span>{user.username}</span>
                             </div>
                         </div>
