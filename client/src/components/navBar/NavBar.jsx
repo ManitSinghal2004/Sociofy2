@@ -35,7 +35,7 @@ const NavBar = () => {
       </div>
       <div className="right">
         <LogoutIcon onClick={()=>{
-          fetch("http://localhost:8800/api/auth/logout/", {method:"POST"}).then(()=>{
+          fetch("https://sociofy.onrender.com/api/auth/logout/", {method:"POST"}).then(()=>{
             document.cookie = 'accessToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
               navigate("/login");
           })
