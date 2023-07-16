@@ -6,6 +6,7 @@
  import authRoutes from "./routes/auth.js" 
 import cookieParser from "cookie-parser";
 import relationshipRoutes from "./routes/relationships.js" 
+import recommandationRoutes from "./routes/recommandations.js"
 import cors from "cors"
 import multer  from "multer";
  const app = express() ;
@@ -49,6 +50,7 @@ app.use("/api/comments" , commentRoutes);
 app.use("/api/likes" , likeRoutes);
 app.use("/api/auth" , authRoutes);
 app.use("/api/relationships" , relationshipRoutes);
+app.use("/api/recommendations" , recommandationRoutes);
  app.listen(8800 , ()=>{
     console.log("API working!") ; 
  })    
